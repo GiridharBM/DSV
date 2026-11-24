@@ -8,9 +8,11 @@ from functools import partial
 
 import streamlit as st
 
-from dashboard import theme
+from dashboard import data_state, theme
 from dashboard.data_state import get_state
-from dashboard.pages import explorer, explainability, geography, overview, performance, prioritization, prediction
+from dashboard.pages import (
+    explorer, explainability, geography, overview, performance, prioritization, prediction, setup,
+)
 
 st.set_page_config(
     page_title="Road-Accident Severity & Intervention Prioritizer",
@@ -27,6 +29,18 @@ with st.sidebar:
     st.caption("Road-Accident Severity & Intervention Prioritizer")
     st.markdown("**PREDICT → EXPLAIN → PRIORITISE → VISUALISE**")
     st.divider()
+
+    uploaded = st.file_uploader("Load your own STATS19-style CSV", type=["csv"],
+                                help="Optional. Provide a collision CSV with STATS19 column names.",
+                                key="sidebar_uploader")
+    data_state.handle_upload(uploaded)
+    if st.session_state.get("upload_error"):
+        st.error(st.session_state["upload_error"])
+    if st.session_state.get("uploaded_frame") is not None:
+        if st.button("Remove uploaded CSV", width="stretch"):
+            data_state.clear_upload()
+            st.rerun()
+
     st.markdown(
         f"<div class='banner' style='margin-bottom:10px'>"
         f"<strong>Data source:</strong> {state['label']}<br>"
@@ -38,32 +52,14 @@ with st.sidebar:
     if state["demo"]:
         st.error("SYNTHETIC DEMO DATA — figures are not real-world results.")
     if state["model"] is None:
-        st.warning("No trained model found. Run `python scripts/run_pipeline.py`.")
-
-    uploaded = st.file_uploader("Load your own STATS19-style CSV", type=["csv"],
-                                help="Optional. Provide a collision CSV with STATS19 column names.")
-    if uploaded is not None:
-        if st.session_state.get("uploaded_name") != uploaded.name:
-            import pandas as pd
-            try:
-                st.session_state["uploaded_frame"] = pd.read_csv(uploaded, low_memory=False, encoding="utf-8-sig")
-                st.session_state["uploaded_name"] = uploaded.name
-                st.cache_data.clear()
-                st.cache_resource.clear()
-                st.rerun()
-            except Exception as exc:
-                st.error(f"Could not read upload: {exc}")
-    if st.session_state.get("uploaded_frame") is not None:
-        if st.button("Remove uploaded CSV"):
-            st.session_state.pop("uploaded_frame", None)
-            st.session_state.pop("uploaded_name", None)
-            st.cache_data.clear()
-            st.cache_resource.clear()
-            st.rerun()
-
+        st.warning("No trained model found. Descriptive analytics still work.")
     st.divider()
     st.caption("Official data: GOV.UK / DfT STATS19 open data. Great Britain only. "
                "No causal claims; all prioritisation signals are associative.")
+
+if not state.get("available"):
+    setup.render(state)
+    st.stop()
 
 pages = [
     st.Page(partial(overview.render, state=state), title="Executive Overview", url_path="overview",

@@ -104,10 +104,23 @@ def render(state: dict) -> None:
 
     st.markdown("---")
     st.subheader("Automatic insights")
-    insight_path = config.REPORTS_DIR / "insights.json"
-    if insight_path.exists():
+    from dashboard.data_state import load_table
+    from src.prioritization.ips import DEFAULT_WEIGHTS, compute_condition_scores
+    from src.utils.insights import build_insights
+
+    try:
+        cat_imp = load_table("shap_category_importance.csv")
+        glob_imp = load_table("shap_global_importance.csv")
+        ips_live = compute_condition_scores(
+            clean.reset_index(drop=True), state["features"].reset_index(drop=True),
+            cat_imp, glob_imp, DEFAULT_WEIGHTS,
+        )
+        insights = build_insights(clean, state["features"], cat_imp, glob_imp, ips_live)
+    except Exception:
         import json
-        insights = json.loads(insight_path.read_text(encoding="utf-8"))
+        insight_path = config.REPORTS_DIR / "insights.json"
+        insights = json.loads(insight_path.read_text(encoding="utf-8")) if insight_path.exists() else []
+    if insights:
         insights_markdown(insights)
     else:
-        st.info("Insights are generated when the analysis pipeline is run.")
+        st.info("Insights are generated from the loaded dataset.")

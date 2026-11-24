@@ -11,7 +11,8 @@ from src.utils.logging import get_logger
 
 log = get_logger(__name__)
 
-CORE_COLUMNS = ["collision_severity", "date", "collision_index"]
+# collision_index is optional: without it the cleaner de-duplicates on whole rows.
+CORE_COLUMNS = ["collision_severity", "date"]
 NUMERIC_RAW = [
     "number_of_vehicles", "speed_limit", "day_of_week", "junction_detail", "junction_control",
     "light_conditions", "weather_conditions", "road_surface_conditions", "road_type",

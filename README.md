@@ -21,7 +21,18 @@ python scripts/run_pipeline.py
 streamlit run app.py
 ```
 
-If the download fails, the app still starts: use the **manual CSV upload** in the sidebar (a STATS19-style collision CSV), or it falls back to a clearly labelled **synthetic DEMO** dataset. The demo never produces fake accuracy/SHAP values — prediction and SHAP pages show an explicit unavailable state if no model artifacts exist.
+### Startup data priority (local and Streamlit Cloud)
+
+The app never assumes a file exists. It resolves data in this order:
+
+1. A CSV uploaded in the sidebar (validated before use).
+2. `data/processed/collisions_clean.csv` if present.
+3. Optional automatic acquisition of recent official STATS19 CSVs (`RAIP_AUTO_DOWNLOAD=1`, default) — downloads `RAIP_AUTO_DOWNLOAD_YEARS` (default `2023,2024,2025`), cleans it, and caches the result.
+4. An explicit, attractive dataset-setup page with download and upload instructions.
+
+No synthetic data is shown by default. If no dataset is available the dashboard shows the setup page instead of charts. Prediction/explainability pages show an explicit unavailable state if the model artifacts are absent; descriptive analytics still work.
+
+Required upload columns: `collision_severity` (1/2/3) and `date` (DD/MM/YYYY). `collision_index` is optional; whole-row de-duplication is used when it is absent.
 
 Rebuild only the ranking/report artifacts (no retraining) with `python scripts/run_reports.py`.
 Run tests with `python -m pytest tests -q`.
