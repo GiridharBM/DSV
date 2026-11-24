@@ -1,0 +1,284 @@
+{
+  "provenance": {
+    "source": "https://www.gov.uk/government/statistical-data-sets/road-safety-open-data",
+    "dataset": "DfT STATS19 road collision records (official open data)",
+    "geography": "Great Britain (NOT India)",
+    "years": "2021-2025",
+    "files": [
+      "collision_2021.csv",
+      "collision_2022.csv",
+      "collision_2023.csv",
+      "collision_2024.csv",
+      "collision_2025.csv"
+    ],
+    "raw_rows": 513801,
+    "clean_rows": 513801,
+    "demo": false,
+    "raw_warnings": [
+      "Raw data is missing expected columns: accident_year"
+    ],
+    "cleaning": {
+      "rows_in": 513801,
+      "rows_out": 513801,
+      "duplicates_removed": 0,
+      "invalid_severity_removed": 0,
+      "invalid_date_removed": 0,
+      "out_of_range_year_removed": 0,
+      "numeric_missing_filled": {},
+      "warnings": []
+    }
+  },
+  "cleaning": {
+    "rows_in": 513801,
+    "rows_out": 513801,
+    "duplicates_removed": 0,
+    "invalid_severity_removed": 0,
+    "invalid_date_removed": 0,
+    "out_of_range_year_removed": 0,
+    "numeric_missing_filled": {},
+    "warnings": []
+  },
+  "best_model": "Random Forest",
+  "selection_rule": "macro_f1 + 0.05*(fatal_recall + serious_recall)",
+  "train_rows": 150000,
+  "test_rows": 101525,
+  "results": {
+    "Logistic Regression": {
+      "accuracy": 0.3694163999015021,
+      "balanced_accuracy": 0.4705481061312738,
+      "precision": {
+        "Fatal": 0.03358813991197591,
+        "Serious": 0.2670927628861497,
+        "Slight": 0.8219349176343506
+      },
+      "recall": {
+        "Fatal": 0.5987611837577426,
+        "Serious": 0.48771386606327655,
+        "Slight": 0.3251692685728022
+      },
+      "f1": {
+        "Fatal": 0.0636081155181868,
+        "Serious": 0.3451608371962354,
+        "Slight": 0.465987273336204
+      },
+      "support": {
+        "Fatal": 1453,
+        "Serious": 25191,
+        "Slight": 74881
+      },
+      "macro_f1": 0.29158540868354205,
+      "weighted_f1": 0.43024833544788554,
+      "macro_precision": 0.37420527347749205,
+      "macro_recall": 0.4705481061312738,
+      "confusion_matrix": [
+        [
+          870,
+          456,
+          127
+        ],
+        [
+          7757,
+          12286,
+          5148
+        ],
+        [
+          17275,
+          33257,
+          24349
+        ]
+      ],
+      "classification_report": {
+        "Fatal": {
+          "precision": 0.03358813991197591,
+          "recall": 0.5987611837577426,
+          "f1-score": 0.0636081155181868,
+          "support": 1453.0
+        },
+        "Serious": {
+          "precision": 0.2670927628861497,
+          "recall": 0.48771386606327655,
+          "f1-score": 0.3451608371962354,
+          "support": 25191.0
+        },
+        "Slight": {
+          "precision": 0.8219349176343506,
+          "recall": 0.3251692685728022,
+          "f1-score": 0.465987273336204,
+          "support": 74881.0
+        },
+        "accuracy": 0.3694163999015021,
+        "macro avg": {
+          "precision": 0.37420527347749205,
+          "recall": 0.4705481061312738,
+          "f1-score": 0.29158540868354205,
+          "support": 101525.0
+        },
+        "weighted avg": {
+          "precision": 0.6729814914999743,
+          "recall": 0.3694163999015021,
+          "f1-score": 0.43024833544788554,
+          "support": 101525.0
+        }
+      },
+      "n_test": 101525
+    },
+    "Random Forest": {
+      "accuracy": 0.5181580891406058,
+      "balanced_accuracy": 0.4723928138965039,
+      "precision": {
+        "Fatal": 0.04588028684326065,
+        "Serious": 0.299024508876699,
+        "Slight": 0.8045504601588924
+      },
+      "recall": {
+        "Fatal": 0.4315209910529938,
+        "Serious": 0.43928387122384976,
+        "Slight": 0.5463735794126681
+      },
+      "f1": {
+        "Fatal": 0.08294199351808983,
+        "Serious": 0.3558313772147014,
+        "Slight": 0.6507917571361536
+      },
+      "support": {
+        "Fatal": 1453,
+        "Serious": 25191,
+        "Slight": 74881
+      },
+      "macro_f1": 0.363188375956315,
+      "weighted_f1": 0.5694774735888662,
+      "macro_precision": 0.3831517519596173,
+      "macro_recall": 0.4723928138965039,
+      "confusion_matrix": [
+        [
+          627,
+          594,
+          232
+        ],
+        [
+          4418,
+          11066,
+          9707
+        ],
+        [
+          8621,
+          25347,
+          40913
+        ]
+      ],
+      "classification_report": {
+        "Fatal": {
+          "precision": 0.04588028684326065,
+          "recall": 0.4315209910529938,
+          "f1-score": 0.08294199351808983,
+          "support": 1453.0
+        },
+        "Serious": {
+          "precision": 0.299024508876699,
+          "recall": 0.43928387122384976,
+          "f1-score": 0.3558313772147014,
+          "support": 25191.0
+        },
+        "Slight": {
+          "precision": 0.8045504601588924,
+          "recall": 0.5463735794126681,
+          "f1-score": 0.6507917571361536,
+          "support": 74881.0
+        },
+        "accuracy": 0.5181580891406058,
+        "macro avg": {
+          "precision": 0.3831517519596173,
+          "recall": 0.4723928138965039,
+          "f1-score": 0.363188375956315,
+          "support": 101525.0
+        },
+        "weighted avg": {
+          "precision": 0.6682583941596081,
+          "recall": 0.5181580891406058,
+          "f1-score": 0.5694774735888662,
+          "support": 101525.0
+        }
+      },
+      "n_test": 101525
+    },
+    "XGBoost": {
+      "accuracy": 0.4677468603792169,
+      "balanced_accuracy": 0.470854996073111,
+      "precision": {
+        "Fatal": 0.04105661298194241,
+        "Serious": 0.28764081708970224,
+        "Slight": 0.8148865326941696
+      },
+      "recall": {
+        "Fatal": 0.4631796283551273,
+        "Serious": 0.48854749712198803,
+        "Slight": 0.46083786274221766
+      },
+      "f1": {
+        "Fatal": 0.07542729055757916,
+        "Serious": 0.3620930608882416,
+        "Slight": 0.588733067185314
+      },
+      "support": {
+        "Fatal": 1453,
+        "Serious": 25191,
+        "Slight": 74881
+      },
+      "macro_f1": 0.3420844728770449,
+      "weighted_f1": 0.5251514696273761,
+      "macro_precision": 0.3811946542552714,
+      "macro_recall": 0.470854996073111,
+      "confusion_matrix": [
+        [
+          673,
+          606,
+          174
+        ],
+        [
+          5219,
+          12307,
+          7665
+        ],
+        [
+          10500,
+          29873,
+          34508
+        ]
+      ],
+      "classification_report": {
+        "Fatal": {
+          "precision": 0.04105661298194241,
+          "recall": 0.4631796283551273,
+          "f1-score": 0.07542729055757916,
+          "support": 1453.0
+        },
+        "Serious": {
+          "precision": 0.28764081708970224,
+          "recall": 0.48854749712198803,
+          "f1-score": 0.3620930608882416,
+          "support": 25191.0
+        },
+        "Slight": {
+          "precision": 0.8148865326941696,
+          "recall": 0.46083786274221766,
+          "f1-score": 0.588733067185314,
+          "support": 74881.0
+        },
+        "accuracy": 0.4677468603792169,
+        "macro avg": {
+          "precision": 0.3811946542552714,
+          "recall": 0.470854996073111,
+          "f1-score": 0.3420844728770449,
+          "support": 101525.0
+        },
+        "weighted avg": {
+          "precision": 0.6729882643353022,
+          "recall": 0.4677468603792169,
+          "f1-score": 0.5251514696273761,
+          "support": 101525.0
+        }
+      },
+      "n_test": 101525
+    }
+  }
+}

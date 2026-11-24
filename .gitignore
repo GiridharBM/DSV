@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+
+# Agent/skill mounts (not project source)
+.agents/
+.claude/
+
+# Temporary files
+*.tmp
+*.part
+*.log
+~$*
+.temp/
+tmp/
+temp/
+
+# Large raw source data (reproducible via python -m src.data.download)
+data/raw/*.csv
+data/raw/*.part
+data/processed/*.csv
+
+# Keep the small processed SHAP explain sample needed by the dashboard
+!data/processed/shap_explain_sample.csv
+
+# Keep only the model artifacts required at runtime
+models/*.joblib
+models/*.npy
+!models/best_model.joblib
+!models/shap_values.npy
+
+# Reports: keep CSV/JSON results and the small PDF
+reports/*.pdf
+!reports/summary_report.pdf
+
+# OS
+.DS_Store
+Thumbs.db

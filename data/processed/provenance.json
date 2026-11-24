@@ -1,0 +1,29 @@
+{
+  "source": "https://www.gov.uk/government/statistical-data-sets/road-safety-open-data",
+  "dataset": "DfT STATS19 road collision records (official open data)",
+  "geography": "Great Britain (NOT India)",
+  "years": "2021-2025",
+  "files": [
+    "collision_2021.csv",
+    "collision_2022.csv",
+    "collision_2023.csv",
+    "collision_2024.csv",
+    "collision_2025.csv"
+  ],
+  "raw_rows": 513801,
+  "clean_rows": 513801,
+  "demo": false,
+  "raw_warnings": [
+    "Raw data is missing expected columns: accident_year"
+  ],
+  "cleaning": {
+    "rows_in": 513801,
+    "rows_out": 513801,
+    "duplicates_removed": 0,
+    "invalid_severity_removed": 0,
+    "invalid_date_removed": 0,
+    "out_of_range_year_removed": 0,
+    "numeric_missing_filled": {},
+    "warnings": []
+  }
+}

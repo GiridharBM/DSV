@@ -1,0 +1,72 @@
+source_feature,category,e_raw,n_explained,basis
+speed_limit,≤20 mph,0.041441876071945154,291,numeric-bin
+speed_limit,30 mph,0.025635631011015084,757,numeric-bin
+speed_limit,40 mph,0.010555704162481977,113,numeric-bin
+speed_limit,50 mph,0.030615454544210663,62,numeric-bin
+speed_limit,60 mph,0.044774581280121864,196,numeric-bin
+speed_limit,70+ mph,0.03923332799542888,81,numeric-bin
+day_of_week,Friday,0.006294600783468474,206,category
+day_of_week,Monday,0.004196984917044974,179,category
+day_of_week,Saturday,0.0052868261525681765,255,category
+day_of_week,Sunday,0.0031775874170842816,193,category
+day_of_week,Thursday,0.004654886607948555,225,category
+day_of_week,Tuesday,0.004874253135891829,207,category
+day_of_week,Wednesday,0.003684886657453872,235,category
+light_conditions,Darkness - lighting unknown,6.430922701843905e-05,6,category
+light_conditions,Darkness - no lighting,0.0037841092032632256,302,category
+light_conditions,Data missing,0.0,1,category
+light_conditions,Daylight,0.0057167896114421095,1084,category
+light_conditions,Unknown,0.01832173719100374,107,category
+weather_conditions,Data missing,0.0,0,category
+weather_conditions,Fine + high winds,0.00020249246879577105,9,category
+weather_conditions,Fine no high winds,0.0015312149591783747,1252,category
+weather_conditions,Fog or mist,1.4318184677959927e-05,3,category
+weather_conditions,Other,0.009925081268677001,48,category
+weather_conditions,Raining + high winds,7.282950766427752e-05,15,category
+weather_conditions,Raining no high winds,0.007553046963774672,143,category
+weather_conditions,Snowing + high winds,0.0,0,category
+weather_conditions,Snowing no high winds,1.2334948100515103e-05,0,category
+weather_conditions,Unknown,0.039476190891548954,30,category
+road_surface_conditions,Data missing,0.00010086553095405343,7,category
+road_surface_conditions,Dry,0.0010335450795917157,1172,category
+road_surface_conditions,Flood over 3cm deep,1.2179075901153089e-05,1,category
+road_surface_conditions,Frozen,9.790704629042742e-05,14,category
+road_surface_conditions,Snow,8.10731164413774e-06,0,category
+road_surface_conditions,Unknown,0.0002360196532617707,21,category
+road_surface_conditions,Wet or damp,0.0028509002096613104,285,category
+road_type,Dual carriageway,0.006849345606575724,217,category
+road_type,Mini roundabout,0.009792414130383151,43,category
+road_type,One way street,0.00013546799931509986,19,category
+road_type,Roundabout,0.02481967641293453,105,category
+road_type,Single carriageway,0.0041406896554581655,1083,category
+road_type,Unknown,0.04666404683172483,33,category
+junction_detail,Data missing,0.02614407893581311,105,category
+junction_detail,Not at junction or within 20 metres,0.005318498682410299,644,category
+junction_detail,Unknown,0.0036077384818130917,751,category
+special_conditions_at_site,Construction,4.339558479205911e-07,0,category
+special_conditions_at_site,Data missing,0.008559832356257555,1281,category
+special_conditions_at_site,Flood,5.355596856036706e-05,1,category
+special_conditions_at_site,Fog,4.693924787814288e-06,0,category
+special_conditions_at_site,Ice,1.335054580163763e-05,1,category
+special_conditions_at_site,None,0.0009053020791736419,210,category
+special_conditions_at_site,Roadworks,1.4590429334514166e-06,1,category
+special_conditions_at_site,School gate,2.2189787189383045e-06,1,category
+special_conditions_at_site,Snow,2.9985375633895206e-06,0,category
+special_conditions_at_site,Strong wind,0.0006270936658758631,5,category
+carriageway_hazards,Data missing,0.005131654211731935,78,category
+carriageway_hazards,None,0.00048376018780825356,1358,category
+carriageway_hazards,Unknown,0.015040807580460768,64,category
+urban_or_rural_area,Data missing,0.0,0,category
+urban_or_rural_area,Rural,0.022911219286815967,491,category
+urban_or_rural_area,Unclassified,0.0,0,category
+urban_or_rural_area,Urban,0.014287002250921887,1009,category
+first_road_class,A,0.00569123710236304,630,category
+first_road_class,A(M),1.5211610067138323e-05,7,category
+first_road_class,B,0.0035428270697835003,207,category
+first_road_class,C,0.011388014452093207,71,category
+first_road_class,Motorway,0.012730825988447754,37,category
+first_road_class,Unclassified,0.018884358334419232,548,category
+time_of_day_band,Afternoon (12-18),0.004274289075110405,647,category
+time_of_day_band,Evening (18-24),0.002418568301469432,401,category
+time_of_day_band,Morning (06-12),0.0030790811335156877,382,category
+time_of_day_band,Night (00-06),0.01697830328654766,70,category

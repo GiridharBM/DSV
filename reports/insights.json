@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Fatal collisions",
+    "detail": "7,553 of 513,801 recorded collisions (1.47%).",
+    "kind": "fatal"
+  },
+  {
+    "title": "Serious collisions",
+    "detail": "116,813 of 513,801 recorded collisions (22.74%).",
+    "kind": "serious"
+  },
+  {
+    "title": "Slight collisions",
+    "detail": "389,435 of 513,801 recorded collisions (75.79%).",
+    "kind": "slight"
+  },
+  {
+    "title": "Annual trend",
+    "detail": "Recorded collisions moved from 101,087 in 2021 to 101,525 in 2025 (+0.4%).",
+    "kind": "trend"
+  },
+  {
+    "title": "Most frequent condition",
+    "detail": "Weather: 'Fine no high winds' appears in 413,632 collisions (80.5% of all records).",
+    "kind": "frequency"
+  },
+  {
+    "title": "Highest serious/fatal proportion",
+    "detail": "Speed limit: '60 mph' has 34.5% fatal-or-serious outcomes among 62,703 collisions (21,628 such outcomes).",
+    "kind": "severity"
+  },
+  {
+    "title": "Highest-priority condition (current weights)",
+    "detail": "IPS 0.710 for Weather: 'Fine no high winds' (frequency 1.000, severity 0.863, SHAP 0.033; n=413,632). This is a ranking signal, not a causal claim.",
+    "kind": "priority"
+  },
+  {
+    "title": "Most influential model features",
+    "detail": "Top mean-|SHAP| features: speed_limit, number_of_vehicles, urban_or_rural_area_Rural.",
+    "kind": "model"
+  }
+]
